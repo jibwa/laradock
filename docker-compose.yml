@@ -17,13 +17,13 @@ services:
             context: ./workspace
             args:
                 - INSTALL_XDEBUG=false
-                - INSTALL_MONGO=false
-                - INSTALL_NODE=false
+                - INSTALL_MONGO=true
+                - INSTALL_NODE=true
                 - INSTALL_YARN=false
                 - INSTALL_DRUSH=false
                 - INSTALL_AEROSPIKE_EXTENSION=false
                 - COMPOSER_GLOBAL_INSTALL=false
-                - INSTALL_WORKSPACE_SSH=false
+                - INSTALL_WORKSPACE_SSH=true
                 - PUID=1000
                 - PGID=1000
                 - NODE_VERSION=stable
@@ -44,7 +44,7 @@ services:
             context: ./php-fpm
             args:
                 - INSTALL_XDEBUG=false
-                - INSTALL_MONGO=false
+                - INSTALL_MONGO=true
                 - INSTALL_ZIP_ARCHIVE=false
                 - INSTALL_MEMCACHED=false
                 - INSTALL_OPCACHE=false
@@ -112,7 +112,7 @@ services:
 ### MySQL Container #########################################
 
     mysql:
-        build: 
+        build:
             context: ./mysql
             args:
                 - MYSQL_DATABASE=homestead

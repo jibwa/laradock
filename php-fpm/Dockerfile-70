@@ -58,9 +58,14 @@ COPY ./xdebug.ini /usr/local/etc/php/conf.d/xdebug.ini
 ARG INSTALL_MONGO=false
 RUN if [ ${INSTALL_MONGO} = true ]; then \
     # Install the mongodb extension
-    pecl install mongodb && \
+    pecl install mongodb \
+;fi
+
+RUN if [ ${INSTALL_MONGO} = true ]; then \
+    # Install the mongodb extension
     docker-php-ext-enable mongodb \
 ;fi
+
 
 #####################################
 # ZipArchive:
